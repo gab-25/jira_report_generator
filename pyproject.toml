@@ -1,5 +1,5 @@
 [project]
-name = "jira-changelog-generator"
+name = "jira-report-generator"
 version = "0.1.0"
 description = ""
 authors = [
@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-jira-changelog-generator = 'jira_changelog_generator.main:run'
+jira-report-generator = 'jira_report_generator.main:run'
 
 
 [build-system]

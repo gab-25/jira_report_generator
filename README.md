@@ -1,4 +1,4 @@
-# jira_changelog_generator
+# jira_report_generator
 
 This script generates a Markdown report (`report.md`) based on issues from a Jira project. The report groups issues by
 application (using Jira labels) and by epic, separating new features from bug fixes.
@@ -24,7 +24,7 @@ Create a configuration file. The script looks for the file in two locations:
 
 1. **Development Mode**: A `.env` file in the project's root directory. To enable this mode, set the `DEV_MODE`
    environment variable to `"true"`.
-2. **Normal Mode**: A file named `.jira_changelog_generator` in your home directory (`~/.jira_changelog_generator`).
+2. **Normal Mode**: A file named `.jira_report_generator` in your home directory (`~/.jira_report_generator`).
 
 The configuration file must contain the following variables:
 

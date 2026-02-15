@@ -6,7 +6,7 @@
   {
     "label": "Python main.py",
     "adapter": "Debugpy",
-    "program": "jira_changelog_generator/main.py",
+    "program": "jira_report_generator/main.py",
     "request": "launch",
   },
 ]
