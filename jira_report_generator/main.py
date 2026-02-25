@@ -35,6 +35,7 @@ def generate_report(df: pd.DataFrame) -> str:
     """
     Generate a report based on the provided DataFrame.
     """
+    content = markdown.Markdown()
     content = f"# ISSUES IN TEST ENVIRONMENT DATE: {datetime.date.today().strftime('%d/%m/%Y')}\n"
 
     for application in df["issue_labels"].sort_values(na_position="last").explode().unique():  # pyright: ignore[reportCallIssue]
@@ -58,13 +59,13 @@ def generate_report(df: pd.DataFrame) -> str:
 
             df_features = pd.DataFrame(df_issue[(df_issue["issue_type"] == "Sviluppo")][["issue_key", "issue_name"]])
             if not df_features.empty:
-                content += "**Features:**\n"
+                content += "**Features:**\n\n"
                 for _, issue_key, issue_name in df_features.itertuples():
                     content += f"- [{issue_key}]({os.getenv('JIRA_HOST')}/browse/{issue_key}) {issue_name}\n"
 
             df_bugfixes = pd.DataFrame(df_issue[(df_issue["issue_type"] == "Bug")][["issue_key", "issue_name"]])
             if not df_bugfixes.empty:
-                content += "**Bugfixes:**\n" if df_features.empty else "\n**Bugfixes:**\n"
+                content += "**Bugfixes:**\n\n" if df_features.empty else "\n**Bugfixes:**\n"
                 for _, issue_key, issue_name in df_bugfixes.itertuples():
                     content += f"- [{issue_key}]({os.getenv('JIRA_HOST')}/browse/{issue_key}) {issue_name}\n"
 
