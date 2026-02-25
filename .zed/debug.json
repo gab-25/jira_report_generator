@@ -4,9 +4,10 @@
 // see: https://zed.dev/docs/debugger
 [
   {
-    "label": "Python main.py",
+    "label": "Python main",
     "adapter": "Debugpy",
     "program": "jira_report_generator/main.py",
+    "args": ["--status=TESTING", "--project=PS05R"],
     "request": "launch",
   },
 ]
